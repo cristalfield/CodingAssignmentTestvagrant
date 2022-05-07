@@ -19,7 +19,7 @@ public class Operations {
     WebElement element=null;
     @Autowired
     public LoadProperties loadProperties;
-    public WebDriver SetupDriver(String browserName){
+    public void SetupDriver(String browserName){
         if(browserName.equalsIgnoreCase("chrome")){
             WebDriverManager.chromedriver().setup();
             this.driver =new ChromeDriver();
@@ -38,7 +38,6 @@ public class Operations {
         }else {
             System.out.println("Invalid browser name, Please check your browser name provided!!");
         }
-        return driver;
     }
     public WebElement getElement(String elementKey){
         if(elementKey.endsWith("_XPATH")){
@@ -57,5 +56,11 @@ public class Operations {
             System.out.println("Invalid Locator details!!");
         }
         return element;
+    }
+    public void getURL(String urlKey){
+        driver.get(loadProperties.getProps().getProperty(urlKey));
+    }
+    public void tearDown(){
+        driver.close();
     }
 }

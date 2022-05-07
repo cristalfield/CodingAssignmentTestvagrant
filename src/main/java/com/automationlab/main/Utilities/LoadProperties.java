@@ -12,8 +12,12 @@ public class LoadProperties {
     public Properties getProps(){
         Properties properties=new Properties();
         try {
-            FileReader fileReader=new FileReader(System.getProperty("user.dir")+"/src/test/resources/PropertiesFile/locators.properties");
-            properties.load(fileReader);
+            FileReader fileLocator=new FileReader(System.getProperty("user.dir")+"/src/test" +
+                    "/resources/PropertiesFile/locators.properties");
+            FileReader fileURL=new FileReader(System.getProperty("user.dir")+"/src/test/resources" +
+                    "/PropertiesFile/pages.properties");
+            properties.load(fileLocator);
+            properties.load(fileURL);
         }catch (FileNotFoundException fileNotFoundException){
             System.out.println(System.getProperty("user.dir"));
             System.out.println("File not exits");

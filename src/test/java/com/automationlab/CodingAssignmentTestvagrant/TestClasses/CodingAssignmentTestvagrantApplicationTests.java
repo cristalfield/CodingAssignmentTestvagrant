@@ -1,4 +1,4 @@
-package com.automationlab.CodingAssignmentTestvagrant;
+package com.automationlab.CodingAssignmentTestvagrant.TestClasses;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

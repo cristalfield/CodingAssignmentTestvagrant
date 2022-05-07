@@ -18,6 +18,7 @@
 		<webdrivermanager.version>5.1.1</webdrivermanager.version>
 		<selenium_java.version>4.1.4</selenium_java.version>
 		<testNG.version>7.5</testNG.version>
+		<selenium_support.version>4.1.4</selenium_support.version>
 		<surefirePlugin.version>3.0.0-M6</surefirePlugin.version>
 		<surefirePlugin.path>src/test/resources/TestXMLFiles/TestNG.xml</surefirePlugin.path>
 	</properties>
@@ -69,11 +70,11 @@
 			<artifactId>junit</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/tech.grasshopper/extentreports-cucumber6-adapter -->
+		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-support -->
 		<dependency>
-			<groupId>tech.grasshopper</groupId>
-			<artifactId>extentreports-cucumber7-adapter</artifactId>
-			<version>1.4.2</version>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-support</artifactId>
+			<version>${selenium_support.version}</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
 		<dependency>

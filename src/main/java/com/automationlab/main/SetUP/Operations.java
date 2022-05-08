@@ -25,11 +25,11 @@ public class Operations {
         if(browserName.equalsIgnoreCase("chrome")){
             WebDriverManager.chromedriver().setup();
             this.driver =new ChromeDriver();
-            this.driver.manage().window().fullscreen();
+            this.driver.manage().window().maximize();
         } else if(browserName.equalsIgnoreCase("firefox")){
             WebDriverManager.firefoxdriver().setup();
             this.driver =new FirefoxDriver();
-            this.driver.manage().window().fullscreen();
+            this.driver.manage().window().maximize();
         } else if(browserName.equalsIgnoreCase("safari")){
             WebDriverManager.safaridriver().setup();
             this.driver =new SafariDriver();
@@ -37,11 +37,11 @@ public class Operations {
         } else if(browserName.equalsIgnoreCase("opera")){
             WebDriverManager.operadriver().setup();
             this.driver =new OperaDriver();
-            this.driver.manage().window().fullscreen();
+            this.driver.manage().window().maximize();
         } else if(browserName.equalsIgnoreCase("edge")){
             WebDriverManager.edgedriver().setup();
             this.driver =new EdgeDriver();
-            this.driver.manage().window().fullscreen();
+            this.driver.manage().window().maximize();
         }else {
             System.out.println("Invalid browser name, Please check your browser name provided!!");
         }

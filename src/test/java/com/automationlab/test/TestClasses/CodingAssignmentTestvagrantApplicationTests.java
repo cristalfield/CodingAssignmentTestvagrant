@@ -3,6 +3,7 @@ package com.automationlab.test.TestClasses;
 import com.automationlab.main.MainApplication.CodingAssignmentTestvagrantApplication;
 import com.automationlab.main.Reports.ExtentReportTest;
 import com.automationlab.main.SetUP.Operations;
+import com.automationlab.test.MainTestClasses.CompareDate;
 import com.automationlab.test.Listeners.ListenerTest;
 import com.automationlab.test.MainTestClasses.IMDB;
 import com.automationlab.test.MainTestClasses.Wikipedia;
@@ -28,6 +29,10 @@ public class CodingAssignmentTestvagrantApplicationTests extends AbstractTestNGS
 	public IMDB imdb;
 	@Autowired
 	public Wikipedia wikipedia;
+	@Autowired
+	public CompareDate compareDate;
+	public String imdbString;
+	public String wikipediaString;
 	@BeforeClass
 	public void drierSetup(){
 		extentReportTest.startExtentReport();
@@ -35,11 +40,15 @@ public class CodingAssignmentTestvagrantApplicationTests extends AbstractTestNGS
 	}
 	@Test(priority = 0)
 	public void IMDBTest(){
-		imdb.IMDBTestBase();
+		imdbString=imdb.IMDBTestBase();
 	}
 	@Test(priority = 1)
 	public void wikipediaTest(){
-		wikipedia.wikipediaTestBase();
+		wikipediaString=wikipedia.wikipediaTestBase();
+	}
+	@Test(priority = 2)
+	public void matchDate(){
+		compareDate.compareTwoDate(imdbString,wikipediaString);
 	}
 	@AfterClass
 	public void tearDownBrowser(){

@@ -11,7 +11,7 @@ public class IMDB {
     public ExtentReportTest extentReportTest;
     @Autowired
     public Operations operations;
-    public void IMDBTestBase(){
+    public String IMDBTestBase(){
         extentReportTest.createTestCase("User able to fetch Pushpa Movie details from IMDB website successfully");
         extentReportTest.infoTest("User entered IMDB url");
         operations.getURL("IMDB");
@@ -29,6 +29,8 @@ public class IMDB {
         operations.getElement("SUGGESTION_XPATH").click();
         extentReportTest.passedTest("Pushpa movie selected from Suggestion dropdown.");
         extentReportTest.infoTest("Getting information about Release Date");
-        extentReportTest.passedTest("Release Date is : "+operations.getElement("RELEASE_XPATH").getText());
+        String releaseDate=operations.getElement("RELEASE_XPATH").getText();
+        extentReportTest.passedTest("Release Date is : "+releaseDate);
+        return releaseDate.replaceAll(",","");
     }
 }

@@ -13,6 +13,8 @@ import org.openqa.selenium.safari.SafariDriver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.concurrent.TimeUnit;
+
 @Component
 public class Operations {
     WebDriver driver;
@@ -23,18 +25,23 @@ public class Operations {
         if(browserName.equalsIgnoreCase("chrome")){
             WebDriverManager.chromedriver().setup();
             this.driver =new ChromeDriver();
+            this.driver.manage().window().fullscreen();
         } else if(browserName.equalsIgnoreCase("firefox")){
             WebDriverManager.firefoxdriver().setup();
             this.driver =new FirefoxDriver();
+            this.driver.manage().window().fullscreen();
         } else if(browserName.equalsIgnoreCase("safari")){
             WebDriverManager.safaridriver().setup();
             this.driver =new SafariDriver();
+            this.driver.manage().window().maximize();
         } else if(browserName.equalsIgnoreCase("opera")){
             WebDriverManager.operadriver().setup();
             this.driver =new OperaDriver();
+            this.driver.manage().window().fullscreen();
         } else if(browserName.equalsIgnoreCase("edge")){
             WebDriverManager.edgedriver().setup();
             this.driver =new EdgeDriver();
+            this.driver.manage().window().fullscreen();
         }else {
             System.out.println("Invalid browser name, Please check your browser name provided!!");
         }
@@ -59,6 +66,12 @@ public class Operations {
     }
     public void getURL(String urlKey){
         driver.get(loadProperties.getProps().getProperty(urlKey));
+    }
+    public String getPageTitle(){
+        return driver.getTitle();
+    }
+    public void implicitWait(){
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
     public void tearDown(){
         driver.close();

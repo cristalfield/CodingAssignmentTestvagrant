@@ -2,6 +2,7 @@ package com.automationlab.test.MainTestClasses;
 
 import com.automationlab.main.Reports.ExtentReportTest;
 import com.automationlab.main.SetUP.Operations;
+import com.automationlab.main.Utilities.LoadProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.testng.Assert;
@@ -12,8 +13,10 @@ public class Wikipedia {
     public ExtentReportTest extentReportTest;
     @Autowired
     public Operations operations;
+    @Autowired
+    public LoadProperties loadProperties;
     public String wikipediaTestBase(){
-        extentReportTest.createTestCase("User able to fetch Pushpa Movie details from IMDB website successfully");
+        extentReportTest.createTestCase(loadProperties.getProps().getProperty("WIKIPEDIA_TEST"));
         extentReportTest.infoTest("User entered Wikipedia url");
         operations.getURL("WIKIPEDIA");
         String expected="Wikipedia, the free encyclopedia";

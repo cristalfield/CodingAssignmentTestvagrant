@@ -2,6 +2,7 @@ package com.automationlab.test.MainTestClasses;
 
 import com.automationlab.main.Reports.ExtentReportTest;
 import com.automationlab.main.SetUP.Operations;
+import com.automationlab.main.Utilities.LoadProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.testng.Assert;
@@ -11,8 +12,10 @@ public class IMDB {
     public ExtentReportTest extentReportTest;
     @Autowired
     public Operations operations;
+    @Autowired
+    public LoadProperties loadProperties;
     public String IMDBTestBase(){
-        extentReportTest.createTestCase("User able to fetch Pushpa Movie details from IMDB website successfully");
+        extentReportTest.createTestCase(loadProperties.getProps().getProperty("IMDB_TEST"));
         extentReportTest.infoTest("User entered IMDB url");
         operations.getURL("IMDB");
         String expected="IMDb: Ratings, Reviews, and Where to Watch the Best Movies & TV Shows";

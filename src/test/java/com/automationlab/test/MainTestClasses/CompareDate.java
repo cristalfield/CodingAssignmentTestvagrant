@@ -1,6 +1,7 @@
 package com.automationlab.test.MainTestClasses;
 
 import com.automationlab.main.Reports.ExtentReportTest;
+import com.automationlab.main.Utilities.LoadProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.testng.Assert;
@@ -11,6 +12,8 @@ import java.util.Objects;
 public class CompareDate {
     @Autowired
     public ExtentReportTest extentReportTest;
+    @Autowired
+    public LoadProperties loadProperties;
     public void compareTwoDate(String date1,String date2){
         String[] first=date1.split(" ",5);
         String[] second=date2.split(" ",5);
@@ -23,7 +26,7 @@ public class CompareDate {
                 }
             }
         }
-        extentReportTest.createTestCase("Verification Test");
+        extentReportTest.createTestCase(loadProperties.getProps().getProperty("RELEASE_DATE_TEST"));
         extentReportTest.infoTest("Validating the dates");
         if(flag==4){
             extentReportTest.passedTest("Both Release dates are same: "+date1+","+date2);

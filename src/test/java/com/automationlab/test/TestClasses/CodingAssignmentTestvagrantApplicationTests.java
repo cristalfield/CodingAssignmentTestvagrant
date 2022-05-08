@@ -4,7 +4,6 @@ import com.automationlab.main.MainApplication.CodingAssignmentTestvagrantApplica
 import com.automationlab.main.Reports.ExtentReportTest;
 import com.automationlab.main.SetUP.Operations;
 import com.automationlab.test.MainTestClasses.CompareDate;
-import com.automationlab.test.Listeners.ListenerTest;
 import com.automationlab.test.MainTestClasses.IMDB;
 import com.automationlab.test.MainTestClasses.Wikipedia;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,13 +12,11 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 @SpringBootTest(classes = {CodingAssignmentTestvagrantApplication.class,
 		CodingAssignmentTestvagrantApplicationTests.class})
 @ComponentScan("com.automationlab.test")
-@Listeners(ListenerTest.class)
 public class CodingAssignmentTestvagrantApplicationTests extends AbstractTestNGSpringContextTests {
 	@Autowired
 	public Operations operations;
